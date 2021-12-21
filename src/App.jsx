@@ -33,10 +33,8 @@ class App extends Component {
   }
 
   addContact = (data) => {
-    const normalizedName = data.name.toLowerCase();
-    const uniqId = Date.now().toString();
     const duplicateName = this.state.contacts.find(
-      (contact) => contact.name === data.name
+      (contact) => contact.name.toLowerCase() === data.name.toLowerCase()
     );
     if (duplicateName) {
       alert(`${data.name} is already on contacts`);
